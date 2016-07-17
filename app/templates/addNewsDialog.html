@@ -18,15 +18,15 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>News Heading</label>
-
-                                <textarea rows="4" cols="50" name="newsHead" class="form-control" placeholder="Heading" required></textarea>
+                                <%console.log(newsCard.newsHead)%>
+                                    <textarea rows="4" cols="50" class="form-control" name="newsHead" required><%=newsCard.newsHead%></textarea>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>News Content</label>
-                                <textarea rows="4" cols="50" class="form-control" name="newsBody" required><%=news.newsBody %></textarea>
+                                <textarea rows="4" cols="50" class="form-control" id="newsBody" name="newsBody" required><%=newsCard.newsBody%></textarea>
 
                            <!--     <button class="btn btn-primary" onclick="countit()">Count</button>
                                 <div id="wordcount3"> </div> -->
@@ -34,7 +34,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Impact</label>
-                                <textarea rows="4" cols="50" name="impact" class="form-control"  placeholder="impact"></textarea>
+                                <textarea rows="4" cols="50" id="impact" name="impact" class="form-control"  placeholder="impact"></textarea>
 <!--
                                 <input rows="4" cols="50" type="button" class="btn btn-danger" value="Count"
                                        onClick="countImpact()"> <input  type="text" name="wordcount4" size="5"> -->
@@ -76,7 +76,8 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>sentiment</label>
-                                <input name="sentiment" class="form-control"  placeholder="sentiment" list="sentiment">
+                                <input id="sentiment" name="sentiment" class="form-control"  placeholder="sentiment" list="sentiment">
+                                
                                 <datalist id="sentiment">
 
                                     <option value="1">Positive</option>
@@ -169,7 +170,7 @@
                     </div>
 
                     <script language="JavaScript">
-
+                        
                         function countit(){
 
                             var formcontent=document.news.newsBody.value
@@ -177,10 +178,7 @@
                             $('#wordcount3').text = formcontent.length
                         }
 
-
-
                         function countImpact(){
-
                             var formcontent=document.news.impact.value
                             formcontent=formcontent.split(" ")
                             document.news.wordcount4.value= formcontent.length

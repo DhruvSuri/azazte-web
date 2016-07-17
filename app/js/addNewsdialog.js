@@ -10,7 +10,9 @@ define([
 
         initialize: function (options) {
             var that = this;
-            that.newsCard = options.newsCard;
+            if (options) {
+                that.newsCard = options.news;
+            };
         },
 
         events: {
@@ -19,11 +21,8 @@ define([
 
         render: function () {
             var that = this;
-
-            that.$el.html(addNewsTemplate({news: that.newsCard}));
-
+            that.$el.html(addNewsTemplate({newsCard: that.newsCard}));
             return that;
-
         },
 
 

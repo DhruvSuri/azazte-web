@@ -65,9 +65,8 @@ define([
                 id = $(e.currentTarget).attr('data-id');
                 that.newsCard = _.findWhere(that.arr, {id: id});
                 console.log(that.newsCard);
-                addNewsView = new addNewsdialog({news: that.newsCard});
+                var addNewsView = new addNewsdialog({news: that.newsCard});
                 that.jEl.find('.addNewsContainer').append(addNewsView.render().$el);
-                //alert(that.newsCard);
             },
 
 
@@ -88,7 +87,7 @@ define([
                 var that = this;
                 that.jEl = that.$el;
                 fetchData.call(that);
-                return that;
+                return that; //checking
             }
         });
 

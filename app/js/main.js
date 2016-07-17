@@ -25,7 +25,7 @@ define([
 
             that.jContainer = $(".news-container");
             that.jLoader = $('.loading-status');
-            that.type = "all";
+            that.type = "approved";
             that.fetching = false;
             that.jContainer.css('height', windowHeight);
             cssUtil.styles(styles, 'newsStyles', true);
@@ -38,13 +38,13 @@ define([
                 jEl = that.$el,
                 topNavView = new TopNavBar(),
                 sideNavView = new SideNavBar();
-          // addNewsView = new addNewsdialog(),
+            addNewsView = new addNewsdialog({news : {}}),
 
             newsContainerView = new NewsContainerView({filter: that.type});
 
             jEl.find('.top-nav-bar').append(topNavView.render().$el);
             jEl.find('.side-nav-bar').append(sideNavView.render().$el);
-        //  jEl.find('.addNewsContainer').append(addNewsView.render().$el);
+            jEl.find('.addNewsContainer').append(addNewsView.render().$el);
             newsContainerView.render();
 
             return that;

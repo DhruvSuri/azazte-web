@@ -25,29 +25,33 @@ events: {
      },
 
      openAddNewsModal: function(){
-
      }
  });
 
-
-
-
-
-
     // //for approval
 
-    $(document).on('click', '.approve', function () {
+    $(document).on('click','.approve', function () {
         var id=$(this).data("id");
-        alert(id);
+        console.log(id);
         $.ajax({
             url: "http://aws.azazte.com/service/rest/admin/approve?newsId="+id,
             method:"get",
             dataType : 'json',
             success:function(data){
-                alert("approved")
+              console.log("done");
             }
         })
-    })
+    });
+
+    $(document).on('click','.un-approve', function () {
+        var id=$(this).data("id");
+        console.log(id);
+        $.ajax({
+            url: "http://aws.azazte.com/service/rest/admin/approve?newsId="+id,
+            method:"get",
+            dataType : 'json'
+        })
+    });
 
 
 
