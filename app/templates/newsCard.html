@@ -1,0 +1,29 @@
+<div class="container-fluid news">
+
+
+	<div  class="news-card col-md-9 col-sm-6">
+        <img class="news-image" src="<%=news.imageUrl%>" />
+            <div class="right-container">
+                 <a href="<%=news.newsSourceUrl%>" class="news-header"><%=news.newsHead%></a>
+                       <div class="news-source inline-el"><%=news.newsSourceName%></div>
+                            <div class="break-el inline-el">-</div>
+                             	<div class="news-date inline-el"><%=news.date%></div>
+				                   <div class="news-body"><%=news.newsBody%></div>
+                                      <div class="news-author inline-el">- <%=news.author%></div>
+			</div>
+    </div>
+
+
+
+	<div class="widgets col-md-3 col-sm-3">
+
+		<button data-id="<%=news.id%>" class="approve btn btn-primary"> Approve </button>
+		<button data-id="<%=news.id%>" data-toggle="modal" data-target="#addNewsDialog" class="edit btn btn-success"> Edit </button>
+		<button  data-id="<%=news.id%>"  class="delete btn btn-danger"> Delete </button>
+		<button data-id="<%=news.id%>"  class="review btn btn-default"> Review </button>
+
+	</div>
+
+</div>
+
+

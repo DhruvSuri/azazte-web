@@ -1,0 +1,196 @@
+
+
+<div class="modal fade" id="addNewsDialog" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> Add News Here
+                    <span class="error" style="display:none"> Please Enter Valid Data</span>
+                    <span class="success" style="display:none"> News Has Been Added !</span></h4>
+                <h5></h5>
+            </div>
+            <div class="modal-body">
+                <form role="form" name="news"  action="#" id="newsForm" method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>News Heading</label>
+
+                                <textarea rows="4" cols="50" name="newsHead" class="form-control" placeholder="Heading" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>News Content</label>
+                                <textarea rows="4" cols="50" class="form-control" name="newsBody" required><%=news.newsBody %></textarea>
+
+                           <!--     <button class="btn btn-primary" onclick="countit()">Count</button>
+                                <div id="wordcount3"> </div> -->
+                            </div></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Impact</label>
+                                <textarea rows="4" cols="50" name="impact" class="form-control"  placeholder="impact"></textarea>
+<!--
+                                <input rows="4" cols="50" type="button" class="btn btn-danger" value="Count"
+                                       onClick="countImpact()"> <input  type="text" name="wordcount4" size="5"> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <input name="category" required class="form-control" type="text" list="newCategory" />
+                                <datalist id="newCategory">
+                                    <option value="1">Economy</option>
+                                    <option value="2">Business & Finance</option>
+                                    <option value="3">Tax</option>
+                                    <option value="4">My Finance</option>
+                                    <option value="5">Law & Regulatory</option>
+                                    <option value="6">Rulings</option>
+                                </datalist>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Author</label>
+                                <input name="author" class="form-control" required list="author" placeholder="Author Name">
+                                <datalist id="author">
+                                    <option>Rahul Batra</option>
+                                    <option>Anjali Jain</option>
+                                    <option>Tarini Suneja</option>
+                                    <option>Shweta Khanduja</option>
+                                    <option>Priyanka Arora</option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>sentiment</label>
+                                <input name="sentiment" class="form-control"  placeholder="sentiment" list="sentiment">
+                                <datalist id="sentiment">
+
+                                    <option value="1">Positive</option>
+                                    <option value="-1">Negative</option>
+
+                                </datalist>
+                            </div></div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Name of Source</label>
+
+                                <input name="newsSourceName" required class="form-control" type="text" list="nameOfSource" />
+                                <datalist id="nameOfSource">
+                                    <option>Economic Times</option>
+                                    <option>Financial Express</option>
+                                    <option>Livemint         </option>
+                                    <option>Business Line    </option>
+                                    <option>Business Standard</option>
+                                    <option>Money Control    </option>
+                                    <option>India Infoline   </option>
+                                    <option>Business Today   </option>
+                                    <option>Reuters          </option>
+                                    <option>TaxSutra         </option>
+                                    <option>Taxmann          </option>
+                                    <option>DNA India        </option>
+                                    <option>Business Insider </option>
+                                    <option>Brand Equity     </option>
+                                    <option>The Tribune      </option>
+                                    <option>Indian Express   </option>
+                                    <option>Deccan Chronicle </option>
+                                    <option>Deccan Herald</option>
+                                    <option>Huffington Post  </option>
+                                    <option>Bloomberg        </option>
+                                    <option>Finance.Yahoo    </option>
+                                    <option>Hindustan Times  </option>
+                                    <option>Zee Business     </option>
+                                    <option>Statsman         </option>
+                                    <option>News18           </option>
+                                    <option>Midday           </option>
+                                    <option>Quint            </option>
+                                    <option>Economist        </option>
+                                    <option>India Times      </option>
+                                    <option>Rediff           </option>
+                                    <option>India.com        </option>
+                                    <option>Hindu            </option>
+                                    <option>PTI              </option>
+                                    <option>incometaxindia.go</option>
+                                    <option>mca.gov.in       </option>
+                                    <option>itatonline.in    </option>
+                                    <option>Dvat.gov.in      </option>
+                                    <option>epfindia.com     </option>
+                                    <option>Taxmann          </option>
+                                    <option>Taxsutra         </option>
+                                    <option>Taxmantra        </option>
+                                    <option>Cleartax         </option>
+                                    <option>Twitter          </option>
+                                    <option>YouTube          </option>
+                                    <option>Medium </option>
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input  type="date" class="form-control"   name="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Image </label>
+                                <input name="imageUrl" class="form-control" required placeholder="image url">
+                            </div>
+                        </div><div class="col-md-6">
+                        <div class="form-group">
+                            <label>News Source URL</label>
+                            <input name="newsSourceUrl" required class="form-control" placeholder="News URL">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Done"  name="Submit" class="wide btn btn-primary addNews" >
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <script language="JavaScript">
+
+                        function countit(){
+
+                            var formcontent=document.news.newsBody.value
+                            formcontent=formcontent.split(" ")
+                            $('#wordcount3').text = formcontent.length
+                        }
+
+
+
+                        function countImpact(){
+
+                            var formcontent=document.news.impact.value
+                            formcontent=formcontent.split(" ")
+                            document.news.wordcount4.value= formcontent.length
+                        }
+
+                    </script>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
