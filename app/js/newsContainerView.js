@@ -88,7 +88,7 @@ define([
                 var that = this;
                 that.jEl = that.$el;
                 fetchData.call(that);
-                return that;
+                return that; //checking
             }
         });
 
