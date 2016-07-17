@@ -67,7 +67,7 @@ define([
                 console.log(that.newsCard);
                 addNewsView = new addNewsdialog({news: that.newsCard});
                 that.jEl.find('.addNewsContainer').append(addNewsView.render().$el);
-                //alert(that.newsCard);
+                // alert(that.newsCard);
             },
 
 
