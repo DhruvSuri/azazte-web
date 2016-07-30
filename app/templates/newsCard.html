@@ -1,4 +1,4 @@
-<div class="container-fluid news">
+<div class="container-fluid news" data-id="<%=news.id%>">
 
 
 	<div  class="news-card col-md-9 col-sm-6">
@@ -17,10 +17,9 @@
 
 	<div class="widgets col-md-3 col-sm-3">
 
-		<button data-id="<%=news.id%>" class="approve btn btn-primary"> Approve </button>
-		<button data-id="<%=news.id%>" data-toggle="modal" data-target="#addNewsDialog" class="edit btn btn-success"> Edit </button>
-		<button  data-id="<%=news.id%>"  class="un-approve btn btn-danger"> Un - approve </button>
-		<button data-id="<%=news.id%>"  class="review btn btn-default"> Review </button>
+		<button  class="approve btn btn-primary"><%=(news.isApproved)? 'UnApprove' : 'Approve' %> </button>
+		<button data-toggle="modal" data-target="#addNewsDialog" class="edit btn btn-success"> Edit </button>
+		<button class="review btn btn-default"> Review </button>
 
 	</div>
 

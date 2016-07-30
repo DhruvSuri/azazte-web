@@ -60,9 +60,8 @@ define([
 
             editData: function (e) {
 
-                var that = this;
-
-                id = $(e.currentTarget).attr('data-id');
+                var that = this,
+                id = $(e.currentTarget).closest('.news').attr('data-id');
                 that.newsCard = _.findWhere(that.arr, {id: id});
                 console.log(that.newsCard);
                 var addNewsView = new addNewsdialog({news: that.newsCard});

@@ -31,29 +31,18 @@ events: {
     // //for approval
 
     $(document).on('click','.approve', function () {
-        var id=$(this).data("id");
+        var jNewsCard = $(this).closest('.news'),
+                id = jNewsCard.data('id');
         console.log(id);
         $.ajax({
             url: "http://aws.azazte.com/service/rest/admin/approve?newsId="+id,
             method:"get",
             dataType : 'json',
             success:function(data){
-              console.log("done");
+              jNewsCard.find('.approve').text('UnApprove');
             }
         })
     });
-
-    $(document).on('click','.un-approve', function () {
-        var id=$(this).data("id");
-        console.log(id);
-        $.ajax({
-            url: "http://aws.azazte.com/service/rest/admin/approve?newsId="+id,
-            method:"get",
-            dataType : 'json'
-        })
-    });
-
-
 
 
     //for review
