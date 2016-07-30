@@ -66,7 +66,7 @@ define([
                 that.newsCard = _.findWhere(that.arr, {id: id});
                 console.log(that.newsCard);
                 var addNewsView = new addNewsdialog({news: that.newsCard});
-                that.jEl.find('.addNewsContainer').append(addNewsView.render().$el);
+                that.jEl.find('.addNewsContainer').html(addNewsView.render().$el);
             },
 
 
