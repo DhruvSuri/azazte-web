@@ -50,11 +50,10 @@ define([
                 url: "http://aws.azazte.com/service/rest/admin/save",
                 method: "POST",
                 crossDomain: true,
-                dataType: "json",
                 contentType: "application/json",
                 data: formData
             }).done(function (response) {
-                console.log(response);
+                window.location.reload();
             });
 
 
