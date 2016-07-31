@@ -17,7 +17,7 @@
 
 	<div class="widgets col-md-3 col-sm-3">
 
-		<button  class="approve btn btn-primary"><%=(news.isApproved)? 'UnApprove' : 'Approve' %> </button>
+		<button  class="approve btn btn-primary" data-action="<%=(news.isApproved)? 'unApprove' : 'approve' %>"><%=(news.isApproved)? 'UnApprove' : 'Approve' %> </button>
 		<button data-toggle="modal" data-target="#addNewsDialog" class="edit btn btn-success"> Edit </button>
 		<button class="review btn btn-default"> Review </button>
 

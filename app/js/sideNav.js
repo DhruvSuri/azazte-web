@@ -32,16 +32,15 @@ events: {
 
     $(document).on('click','.approve', function () {
         var jNewsCard = $(this).closest('.news'),
+            approveFlag= $(this).data('action') === 'approve',
                 id = jNewsCard.data('id');
-        console.log(id);
+
         $.ajax({
-            url: "http://aws.azazte.com/service/rest/admin/approve?newsId="+id,
-            method:"get",
-            dataType : 'json',
+            url: "http://aws.azazte.com/service/rest/admin/approve?newsId="+id+"&approve="+approveFlag,
             success:function(data){
-              jNewsCard.find('.approve').text('UnApprove');
+              window.location.reload();
             }
-        })
+        });
     });
 
 
