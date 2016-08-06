@@ -7,8 +7,7 @@ define([
     'app/js/sideNav',
     'app/js/newsContainerView',
     'app/js/addNewsdialog',
-    'text!app/css/news.css',
-    'bootstrap.min'
+    'text!app/css/news.css'
 ], function ($, Backbone, _, cssUtil, TopNavBar, SideNavBar, NewsContainerView, addNewsdialog, styles) {
 
     BaseView = Backbone.View.extend({

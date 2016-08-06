@@ -143,7 +143,7 @@
 
                             <div class="form-group">
                                 <label>Date</label>
-                                <input  type="date" class="form-control"   name="date" value="<%=newsCard.date%>">
+                                <input  type="date" class="form-control"   name="date" value="<%= (newsCard.date ? new Date(newsCard.date).toISOString().substring(0,10) : new Date())%>">
                             </div>
                         </div>
                     </div>

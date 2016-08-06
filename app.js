@@ -5,6 +5,13 @@
 // directory.
 requirejs.config({
     baseUrl: 'lib',
+
+    // shim : {
+    //     bootstrap : {
+    //         deps : [ 'jquery']
+    //     }
+    // },
+
     paths: {
         app: '../app'
     }
