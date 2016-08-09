@@ -39,12 +39,12 @@ define([
                 sideNavView = new SideNavBar();
             addNewsView = new addNewsdialog({news : {}}),
 
-            newsContainerView = new NewsContainerView({filter: that.type});
+            that.newsContainerView = new NewsContainerView({filter: that.type});
 
             jEl.find('.top-nav-bar').append(topNavView.render().$el);
             jEl.find('.side-nav-bar').append(sideNavView.render().$el);
             jEl.find('.addNewsContainer').append(addNewsView.render().$el);
-            newsContainerView.render();
+            that.newsContainerView.render();
 
             return that;
         },
@@ -53,14 +53,14 @@ define([
         filterNews: function (e) {
 
             var that = this,
-                type = $(e.currentTarget).attr('data-value'),
-                newsContainerView;
+                type = $(e.currentTarget).attr('data-value');
 
             if (that.type === type) {
                 return;
             }
-            newsContainerView = new NewsContainerView({filter: type});
-            newsContainerView.render();
+            that.newsContainerView.remove();
+            that.newsContainerView  = new NewsContainerView({filter: type});
+            that.newsContainerView.render();
             that.type = type;
         }
 

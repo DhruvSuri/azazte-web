@@ -49,7 +49,7 @@ define([
 
         NewsContainerView = Backbone.View.extend({
 
-            el: $('body'),
+            el: $('.news-cont-inner'),
 
             events: {
 
