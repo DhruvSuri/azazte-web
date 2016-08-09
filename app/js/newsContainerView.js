@@ -49,7 +49,6 @@ define([
 
         NewsContainerView = Backbone.View.extend({
 
-            el: $('.news-cont-inner'),
 
             events: {
 
@@ -65,7 +64,7 @@ define([
                 that.newsCard = _.findWhere(that.arr, {id: id});
                 console.log(that.newsCard);
                 var addNewsView = new addNewsdialog({news: that.newsCard});
-                that.jEl.find('.addNewsContainer').html(addNewsView.render().$el);
+                $('.addNewsContainer').html(addNewsView.render().$el);
             },
 
 

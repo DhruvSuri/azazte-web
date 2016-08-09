@@ -59,7 +59,7 @@ define([
                 return;
             }
             that.newsContainerView.remove();
-            that.newsContainerView  = new NewsContainerView({filter: type});
+            that.newsContainerView  = new NewsContainerView({el: that.jContainer, filter: type});
             that.newsContainerView.render();
             that.type = type;
         }
