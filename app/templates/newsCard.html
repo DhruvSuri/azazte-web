@@ -1,30 +1,27 @@
 <div class="container-fluid news" data-id="<%=news.id%>">
 
 
-    <div class="news-card col-md-9 col-sm-6">
-        <img class="news-image" src="<%=news.imageUrl%>"/>
-        <div class="right-container">
-            <a href="<%=news.newsSourceUrl%>" class="news-header"><%=news.newsHead%></a>
-            <div class="news-source inline-el"><%=news.newsSourceName%></div>
-            <div class="break-el inline-el">-</div>
-            <div class="news-date inline-el"><%=news.date%></div>
-            <div class="news-body"><%=news.newsBody%></div>
-            <label class="header-label <%=news.impact ? '' : 'hide'%>">Impact</label>
-            <div class="news-body"><%=news.impact%></div>
-            <div class="news-author inline-el">- <%=news.author%></div>
-        </div>
+	<div  class="news-card col-md-9 col-sm-6">
+        <img class="news-image" src="<%=news.imageUrl%>" />
+            <div class="right-container">
+                 <a href="<%=news.newsSourceUrl%>" class="news-header"><%=news.newsHead%></a>
+                       <div class="news-source inline-el"><%=news.newsSourceName%></div>
+                            <div class="break-el inline-el">-</div>
+                             	<div class="news-date inline-el"><%=news.date%></div>
+				                   <div class="news-body"><%=news.newsBody%></div>
+                                      <div class="news-author inline-el">- <%=news.author%></div>
+			</div>
     </div>
 
 
-    <div class="widgets col-md-3 col-sm-3">
 
-        <button class="approve btn btn-primary" data-action="<%=(news.isApproved)? 'unApprove' : 'approve' %>">
-            <%=(news.isApproved)? 'UnApprove' : 'Approve' %>
-        </button>
-        <button data-toggle="modal" data-target="#addNewsDialog" class="edit btn btn-success"> Edit</button>
-        <button class="review btn btn-default"> Review</button>
+	<div class="widgets col-md-3 col-sm-3">
 
-    </div>
+		<button  class="approve btn btn-primary" data-action="<%=(news.isApproved)? 'unApprove' : 'approve' %>"><%=(news.isApproved)? 'UnApprove' : 'Approve' %> </button>
+		<button data-toggle="modal" data-target="#addNewsDialog" class="edit btn btn-success"> Edit </button>
+		<button class="review btn btn-default"> Review </button>
+
+	</div>
 
 </div>
 
