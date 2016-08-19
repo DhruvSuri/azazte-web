@@ -23,7 +23,6 @@ define([
                 windowHeight = $(window).height() - 52;
 
             that.jContainer = $(".news-container");
-            that.jLoader = $('.loading-status');
             that.type = "approved";
             that.fetching = false;
             that.jContainer.css('height', windowHeight);
@@ -39,7 +38,7 @@ define([
                 sideNavView = new SideNavBar();
             addNewsView = new addNewsdialog({news : {}}),
 
-            that.newsContainerView = new NewsContainerView({filter: that.type});
+            that.newsContainerView = new NewsContainerView({el: that.jContainer, filter: that.type});
 
             jEl.find('.top-nav-bar').append(topNavView.render().$el);
             jEl.find('.side-nav-bar').append(sideNavView.render().$el);
@@ -53,8 +52,11 @@ define([
         filterNews: function (e) {
 
             var that = this,
-                type = $(e.currentTarget).attr('data-value');
+                jTarget = $(e.currentTarget),
+                type = jTarget.attr('data-value');
 
+            $('.navbar-nav').find('.active-nav').removeClass('active-nav');
+            jTarget.addClass('active-nav');
             if (that.type === type) {
                 return;
             }
