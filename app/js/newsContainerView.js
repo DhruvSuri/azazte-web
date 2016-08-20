@@ -22,7 +22,7 @@ define([
 
 
         fetchData = function () {
-
+            //that.arr = [];
             var that = this;
             var url = "http://aws.azazte.com/service/rest/news?start=" + that.start + "&limit=10&filter=" + that.filter;
             that.fetching = true;
@@ -44,6 +44,7 @@ define([
                 //console.log(that.arr);
 
                 that.fetching = false;
+                this.arr = that.arr;
             });
         },
 
