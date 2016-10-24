@@ -3,8 +3,9 @@ define([
     'backbone',
     'underscore',
     'app/js/addNewsdialog',
+    'app/js/addBubbleDialog',
     'jst!app/templates/newsCard.html',
-], function ($, Backbone, _, addNewsdialog, newsCardTemplate) {
+], function ($, Backbone, _, addNewsdialog,addBubbleDialog, newsCardTemplate) {
 
     var onScroll = function () {
             var that = this,
@@ -47,31 +48,38 @@ define([
                 this.arr = that.arr;
             });
         },
+        
 
         NewsContainerView = Backbone.View.extend({
 
 
             events: {
-
-                "click .edit": "editData"
-
+                "click .edit": "editData",
+                "click .bubble": "addBubble"
             },
 
 
             editData: function (e) {
 
-                var that = this,
-                id = $(e.currentTarget).closest('.news').attr('data-id');
+                var that = this;
+                var id = $(e.currentTarget).closest('.news').attr('data-id');
                 that.newsCard = _.findWhere(that.arr, {id: id});
-                console.log(that.newsCard);
                 var addNewsView = new addNewsdialog({news: that.newsCard});
                 $('.addNewsContainer').html(addNewsView.render().$el);
+            },
+
+            addBubble: function (e) {
+                var that = this;
+                var id = $(e.currentTarget).closest('.news').attr('data-id');
+                var addBubbleView = new addBubbleDialog({id: id});
+                $('.addNewsContainer').html(addBubbleView.render().$el);
             },
 
 
             initialize: function (options) {
                 var that = this;
                 that.arr = [];
+                that.bubbleArr = [];
                 that.filter = options.filter;
                 that.jContainer = $(".news-container");
                 that.jaddNews = $(".addNewsContainer");
@@ -81,14 +89,16 @@ define([
                 that.newsCard = null;
                 that.jContainer.empty();
                 this.jContainer.unbind("scroll").scroll(_.bind(_.debounce(onScroll, 250), this));
-            },
+            }
+            ,
             render: function () {
                 var that = this;
                 that.jEl = that.$el;
                 fetchData.call(that);
                 return that; //checking
             }
-        });
+        })
+        ;
 
 
     return NewsContainerView;

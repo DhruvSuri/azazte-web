@@ -12,7 +12,7 @@ define([
             var that = this;
             if (options) {
                 that.newsCard = options.news;
-            };
+            }
         },
 
         events: {
@@ -58,8 +58,6 @@ define([
 
 
             e.preventDefault();
-
-
         }
 
 

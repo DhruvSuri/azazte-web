@@ -7,8 +7,9 @@ define([
     'app/js/sideNav',
     'app/js/newsContainerView',
     'app/js/addNewsdialog',
+    'app/js/addBubbleDialog',
     'text!app/css/news.css'
-], function ($, Backbone, _, cssUtil, TopNavBar, SideNavBar, NewsContainerView, addNewsdialog, styles) {
+], function ($, Backbone, _, cssUtil, TopNavBar, SideNavBar, NewsContainerView, addNewsdialog, addBubbleDialog, styles) {
 
     BaseView = Backbone.View.extend({
 
@@ -37,12 +38,15 @@ define([
                 topNavView = new TopNavBar(),
                 sideNavView = new SideNavBar();
             addNewsView = new addNewsdialog({news: {}}),
+            addBubbleView = new addBubbleDialog(),
                 that.newsContainerView = new NewsContainerView({filter: that.type});
-                //that.newsContainerView = new NewsContainerView({el: that.jContainer, filter: that.type});
+
+
+            //that.newsContainerView = new NewsContainerView({el: that.jContainer, filter: that.type});
 
             jEl.find('.top-nav-bar').append(topNavView.render().$el);
             jEl.find('.side-nav-bar').append(sideNavView.render().$el);
-            jEl.find('.addNewsContainer').append(addNewsView.render().$el);
+            jEl.find('.addNewsContainer').append(addNewsView.render().$el).append(addBubbleView.render().$el);
             that.newsContainerView.render();
 
             return that;
@@ -81,8 +85,8 @@ define([
                 return;
             }
             //that.newsContainerView.remove();
-            
-            that.newsContainerView  = new NewsContainerView({el: that.jContainer, filter: type});
+
+            that.newsContainerView = new NewsContainerView({el: that.jContainer, filter: type});
             that.newsContainerView.render();
             that.type = type;
         }

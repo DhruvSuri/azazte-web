@@ -1,0 +1,33 @@
+<tr class="form-group">
+    <script>$(document).ready(function() {
+        $('#pdf').change(function() {
+            var newurl = $('#bubbleLink').val();
+            $('a.target').attr('href', newurl);
+        });
+    });</script>
+    <td>
+        <input type="hidden" class="form-control" name="id">
+    </td>
+    <td>
+        <input name="channelName" required class="form-control" type="text" list="channelList" value=<%=bubble.channelName%> >
+        <datalist id="channelList">
+            <option value="1">TWITTER</option>
+            <option value="2">YOUTUBE</option>
+            <option value="3">INFO</option>
+            <option value="4">QUORA</option>
+        </datalist>
+
+
+    </td>
+    <td>
+        <input id="bubbleLink" type="text" name="link" class="form-control" class="fname" value=<%=bubble.link%>>
+    </td>
+
+    <td>
+        <a class="target" href=<%=bubble.link%> target="_blank">.   Bubble link    .</a>
+    </td>
+    <td>
+        <input type="button" class="deleteRowBtn" value="Delete"/>
+    </td>
+
+</tr>

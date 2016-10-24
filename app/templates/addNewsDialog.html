@@ -18,21 +18,24 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <input type="hidden" class="form-control" name="id" value="<%=newsCard.id%>">
+                                <input type="hidden" class="form-control" name="createdTimeEpoch" value="<%=newsCard.createdTimeEpoch%>">
                                 <label>News Heading</label>
-                                    <textarea rows="4" cols="50" class="form-control" name="newsHead" required><%=newsCard.newsHead%></textarea>
+                                    <textarea rows="6" cols="50" class="form-control" name="newsHead" required><%=newsCard.newsHead%></textarea>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>News Content</label>
-                                <textarea rows="4" cols="50" class="form-control" id="newsBody" name="newsBody" required><%=newsCard.newsBody%></textarea>
+                                <textarea rows="6" cols="50" class="form-control" id="newsBody" name="newsBody" required><%=newsCard.newsBody%></textarea>
 
                            <!--     <button class="btn btn-primary" onclick="countit()">Count</button>
                                 <div id="wordcount3"> </div> -->
                             </div></div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label>Impact Label</label>
+                                <textarea rows="1" cols="50" id="impactLabel" name="impactLabel" class="form-control"  placeholder="Default value 'Impact'. *Optional"><%=newsCard.impactLabel%></textarea>
                                 <label>Impact</label>
                                 <textarea rows="4" cols="50" id="impact" name="impact" class="form-control"  placeholder="impact"><%=newsCard.impact%></textarea>
 <!--
@@ -144,7 +147,7 @@
 
                             <div class="form-group">
                                 <label>Date</label>
-                                <input  type="date" class="form-control"   name="date" value="<%= (newsCard.date ? new Date(newsCard.date).toISOString().substring(0,10) : new Date())%>">
+                                <input  type="date" class="form-control"   name="date" value="<%= (newsCard.date ? new Date(new Date(newsCard.date).getTime() - (new Date(newsCard.date).getTimezoneOffset() * 60000)).toISOString().substring(0,10) : new Date())%>">
                             </div>
                         </div>
                     </div>
